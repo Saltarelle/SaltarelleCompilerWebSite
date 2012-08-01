@@ -1,0 +1,24 @@
+﻿@using Dinamico.Models
+@model Dinamico.Models.LanguageFeaturesListPage
+
+@{
+	Content.Define(re => 
+	{
+		re.Title = "Language features";
+		re.ReplaceDefault = true;
+	});
+}
+@Html.Partial("LayoutPartials/Content")
+
+<ul>
+@foreach (var feature in Model.GetChildren().OfType<LanguageFeature>()) {
+	<li class="language-feature">
+		@*<img src="@feature.Icon"/><span class="status">@feature.Status</span>*@
+		<p class="description">@feature.Description</p>
+		<p class="csharp">@feature.CSharp</p>
+		<p class="script">@feature.JavaScript</p>
+		<p class="output">@feature.Output</p>
+	</li>
+	@Html
+}
+</ul>

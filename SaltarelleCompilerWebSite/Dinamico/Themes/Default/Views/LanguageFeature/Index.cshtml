@@ -1,0 +1,12 @@
+﻿@model Dinamico.Models.LanguageFeature
+
+@{
+	Content.Define(re => 
+	{
+		re.Title = "Language feature";
+		re.ReplaceDefault = true;
+	});
+}
+<div class="entry-content">
+	@Model.CSharp
+</div>
