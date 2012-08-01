@@ -8,5 +8,17 @@
 	});
 }
 <div class="entry-content">
-	@Model.CSharp
+	<li class="language-feature">
+		<span class="title">@Model.Title</span>
+		<img class="status-icon" src="@Model.StatusIcon"/><span class="status">@Model.Status</span>
+		<div class="details">
+			<p class="description">@Html.Raw(Model.Description)</p>
+			<div class="csharp-title">C#</div>
+			<p class="csharp">@Model.CSharp</p>
+			<div class="script-title">JavaScript</div>
+			<p class="script">@Model.JavaScript</p>
+			<div class="output-title">Output</div>
+			<p class="output">@Model.Output</p>
+		</div>
+	</li>
 </div>

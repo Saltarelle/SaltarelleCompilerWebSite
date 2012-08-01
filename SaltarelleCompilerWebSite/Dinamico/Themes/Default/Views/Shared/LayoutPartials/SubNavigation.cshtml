@@ -3,6 +3,6 @@
 	int level = 1;
 	foreach (var a in Content.Traverse.AncestorsBetween(level, 2)){
 		level++;
-		@Html.UnorderedList(Content.Traverse.NavigatableChildPages(a).TryAppendCreatorNode(Html.ContentEngine(), a), @<span>@Html.Link(item.Data)</span>, htmlAttributes: new { @class = "submenu menu clearfix level" + level });
+		@Html.UnorderedList(Content.Traverse.NavigatableChildPages(a).Where(p => p.IsPage).TryAppendCreatorNode(Html.ContentEngine(), a), @<span>@Html.Link(item.Data)</span>, htmlAttributes: new { @class = "submenu menu clearfix level" + level });
 	}
 }

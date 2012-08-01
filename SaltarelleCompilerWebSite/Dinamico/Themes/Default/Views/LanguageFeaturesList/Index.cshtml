@@ -10,15 +10,53 @@
 }
 @Html.Partial("LayoutPartials/Content")
 
-<ul>
-@foreach (var feature in Model.GetChildren().OfType<LanguageFeature>()) {
-	<li class="language-feature">
-		@*<img src="@feature.Icon"/><span class="status">@feature.Status</span>*@
-		<p class="description">@feature.Description</p>
-		<p class="csharp">@feature.CSharp</p>
-		<p class="script">@feature.JavaScript</p>
-		<p class="output">@feature.Output</p>
-	</li>
-	@Html
-}
+<ul class="language-features">
+	@foreach (var feature in Model.GetChildren().OfType<LanguageFeature>()) {
+		<li class="language-feature">
+			<span class="title">@feature.Title</span>
+			<img class="status-icon" src="@feature.StatusIcon"/><span class="status">@feature.Status</span>
+			<div class="details">
+				<p class="description">@Html.Raw(feature.Description)</p>
+				@if (!String.IsNullOrEmpty(feature.CSharp)) {
+					<div class="csharp-title">C#</div>
+					<p class="csharp">@feature.CSharp</p>
+				}
+				@if (!String.IsNullOrEmpty(feature.JavaScript)) {
+					<div class="script-title">JavaScript</div>
+					<p class="script">@feature.JavaScript</p>
+				}
+				@if (!String.IsNullOrEmpty(feature.Output)) {
+					<div class="output-title">Output</div>
+					<p class="output">@feature.Output</p>
+				}
+			</div>
+		</li>
+	}
 </ul>
+@if (!string.IsNullOrEmpty(Model.TextAfter)) {
+	<div class="entry-content">
+		@Content.Display.TextAfter
+	</div>
+}
+
+<script>
+	$(function() {
+		$('.language-feature .title')
+		.addClass('toggler')
+		.click(function() {
+			$(this).nextAll('.details').toggle();
+		});
+
+		$('.language-feature .details')
+		.hide();
+
+		$('.language-feature .csharp, .language-feature .script, .language-feature .output')
+		.hide();
+
+		$('.language-feature .csharp-title, .language-feature .script-title, .language-feature .output-title')
+		.addClass('toggler')
+		.click(function () {
+			$(this).next().toggle();
+		});
+	});
+</script>

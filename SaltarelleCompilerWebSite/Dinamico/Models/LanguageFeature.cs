@@ -17,9 +17,14 @@ namespace Dinamico.Models
 		/// <summary>
 		/// Image used on the page and on listings.
 		/// </summary>
-		//[EditableMediaUpload(PreferredSize = "wide")]
-		//[Persistable(Length = 256)] // to minimize select+1
-		//public virtual string Icon { get; set; }
+		[EditableMediaUpload(PreferredSize = "wide")]
+		public virtual string StatusIcon { get; set; }
+
+		public override bool IsPage {
+			get {
+				return true;
+			}
+		}
 
 		/// <summary>
 		/// Image used on the page and on listings.

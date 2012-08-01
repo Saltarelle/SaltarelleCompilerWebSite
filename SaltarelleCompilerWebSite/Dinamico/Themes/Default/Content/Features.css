@@ -73,3 +73,46 @@ div.column2 div.gmap > div
 {
 	height:300px;
 }
+
+ul.language-features {
+}
+
+li.language-feature {
+	list-style-type: none;
+	margin-bottom: 10px;
+}
+
+.language-feature .title {
+	float: left;
+	font-size: 1.1em;
+	font-weight: bold;
+	width: 300px;
+}
+
+.language-feature .toggler {
+	cursor: pointer;
+}
+
+.language-feature .details {
+	padding-left: 20px;
+}
+
+.language-feature .csharp-title, .language-feature .script-title, .language-feature .output-title {
+	font-weight: bold;
+	padding-left: 20px;
+	margin-top: 10px;
+}
+
+.language-feature .status-icon {
+	padding-right: 4px;
+	position: relative;
+	top: 2px;
+}
+
+.language-feature .csharp, .language-feature .script, .language-feature .output {
+	font-family: monospace;
+	white-space: pre;
+	margin-left: 20px;
+	padding: 5px;
+	border: solid 1px gray;
+}

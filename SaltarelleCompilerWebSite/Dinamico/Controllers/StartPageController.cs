@@ -40,7 +40,7 @@ namespace Dinamico.Controllers
 		{
 			var start = this.Content.Traverse.StartPage;
 			string content = Tree.From(start)
-				.Filters(N2.Content.Is.Accessible())
+				.Filters(N2.Content.Is.Accessible(), N2.Content.Is.Page())
 				.ExcludeRoot(true).ToString();
 			return Content("<ul>" 
 				+ "<li>" + Link.To(start) + "</li>"
