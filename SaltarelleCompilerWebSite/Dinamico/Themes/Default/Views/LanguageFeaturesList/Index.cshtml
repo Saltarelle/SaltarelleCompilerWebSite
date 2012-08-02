@@ -1,4 +1,5 @@
 ﻿@using Dinamico.Models
+@using NHibernate.Persister
 @model Dinamico.Models.LanguageFeaturesListPage
 
 @{
@@ -11,7 +12,7 @@
 @Html.Partial("LayoutPartials/Content")
 
 <ul class="language-features">
-	@foreach (var feature in Model.GetChildren().OfType<LanguageFeature>()) {
+	@foreach (var feature in Model.GetChildren("Features").OfType<LanguageFeature>()) {
 		<li class="language-feature">
 			<span class="title">@feature.Title</span>
 			<img class="status-icon" src="@feature.StatusIcon"/><span class="status">@feature.Status</span>

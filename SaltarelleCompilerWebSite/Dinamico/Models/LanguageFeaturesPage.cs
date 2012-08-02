@@ -2,6 +2,7 @@
 using Dinamico.Models;
 using N2;
 using N2.Details;
+using N2.Integrity;
 using N2.Persistence;
 using N2.Definitions;
 using System.Web.UI.WebControls;
@@ -15,6 +16,7 @@ namespace Dinamico.Models
 	/// </summary>
 	[PageDefinition]
 	[WithEditableTemplateSelection(ContainerName = Defaults.Containers.Metadata)]
+	[AvailableZone("Features", "Features")]
 	public class LanguageFeaturesListPage : ContentPage
 	{
 		/// <summary>

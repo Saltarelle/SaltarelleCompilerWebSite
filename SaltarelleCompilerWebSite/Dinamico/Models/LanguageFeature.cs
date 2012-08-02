@@ -12,19 +12,16 @@ namespace Dinamico.Models
 	[PageDefinition]
 	[WithEditableTitle]
 	[RestrictParents(typeof(LanguageFeaturesListPage))]
+	[AllowedZones("Features")]
 	public class LanguageFeature : ContentItem
 	{
+		public override bool IsPage { get { return false; } }
+
 		/// <summary>
 		/// Image used on the page and on listings.
 		/// </summary>
 		[EditableMediaUpload(PreferredSize = "wide")]
 		public virtual string StatusIcon { get; set; }
-
-		public override bool IsPage {
-			get {
-				return true;
-			}
-		}
 
 		/// <summary>
 		/// Image used on the page and on listings.
