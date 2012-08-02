@@ -70,40 +70,6 @@ namespace Dinamico.Controllers
 		}
 
 		// **************************************
-		// URL: /Account/Register
-		// **************************************
-
-		public ActionResult Register()
-		{
-			ViewBag.PasswordLength = MembershipService.MinPasswordLength;
-			return View();
-		}
-
-		[HttpPost]
-		public ActionResult Register(RegisterModel model)
-		{
-			if (ModelState.IsValid)
-			{
-				// Attempt to register the user
-				MembershipCreateStatus createStatus = MembershipService.CreateUser(model.UserName, model.Password, model.Email);
-
-				if (createStatus == MembershipCreateStatus.Success)
-				{
-					FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
-					return Redirect(N2.Find.StartPage.Url);
-				}
-				else
-				{
-					ModelState.AddModelError("", AccountValidation.ErrorCodeToString(createStatus));
-				}
-			}
-
-			// If we got this far, something failed, redisplay form
-			ViewBag.PasswordLength = MembershipService.MinPasswordLength;
-			return View(model);
-		}
-
-		// **************************************
 		// URL: /Account/ChangePassword
 		// **************************************
 
