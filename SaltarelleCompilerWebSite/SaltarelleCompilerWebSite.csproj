@@ -210,7 +210,6 @@
     <Content Include="Dinamico\Themes\Terracotta\Content\Mood.css" />
     <Content Include="Dinamico\Themes\Terracotta\Content\Site.css" />
     <Content Include="Dinamico\Themes\Terracotta\Thumbnail.JPG" />
-    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="N2\history.txt" />
